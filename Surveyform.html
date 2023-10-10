@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" integrity="sha384-PJsj/BTMqILvmcej7ulplguok8ag4xFTPryRq8xevL7eBYSmpXKcbNVuy+P0RMgq" crossorigin="anonymous">
+    <title>Survey Form</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color:bisque;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #05c46b;
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 21px;
+            display: block;
+            width: 90%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            padding: 2px;
+            display: block;
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Survey Form</h2>
+        <form id="surveyForm">
+            <div class="form-group">
+                
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" placeholder="Enter FirstName" name="firstName" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" placeholder="Enter LastName"  name="lastName" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <select id="country" name="country" required>
+                    <option value="India">India</option>
+                    <option value="Shrilanka">Shrilanka</option>
+                    <option value="Japan">Japan</option>
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                </select>
+            </div>
+            <div class="form-">
+                <label>Gender:</label>
+                <input type="checkbox" id="male" name="gender" value="Male">
+                <label for="male">Male</label>
+                <input type="checkbox" id="female" name="gender" value="Female">
+                <label for="female">Female</label>
+            </div>
+            <div class="form-group">
+                <label for="profession" >Profession:</label>
+                <input type="text" id="profession" name="profession"placeholder="Enter profession"  required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter E-mail" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="XXXXXXXXXX" required>
+            </div>
+           
+            
+            <button type="button" id="submitBtn">Submit</button>
+            <button type="button" id="resetBtn">Reset</button>
+        
+        </form>
+    </div>
+
+    <script>
+        
+        const form = document.getElementById("surveyForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const resetBtn = document.getElementById("resetBtn");
+
+        submitBtn.addEventListener("click", function () {
+           
+            const formData = new FormData(form);
+            let popupText = "";
+            for (const [key, value] of formData.entries()) {
+                popupText += `${key}: ${value}\n`;
+            }
+            alert(popupText);
+
+            form.reset();
+        });
+
+        resetBtn.addEventListener("click", function () {
+            
+            form.reset();
+        });
+    </script>
+</body>
+</html>
